@@ -1,21 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { styled } from 'styled-components'
-
-const HeaderBox = styled.header`
-  max-width: 95%;
-  margin: 10px auto;
-  padding: 20px;
-  margin-bottom: 30px;
-  background: #fff;
-  border-radius: 10px;
-`
-const Box = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-`
+import { Box, HeaderBox } from './style'
 
 export default function Header() {
   const pathname = usePathname()
