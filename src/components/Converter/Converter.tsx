@@ -21,7 +21,7 @@ const fetcher: Fetcher<ConversionData, string> = async (url: string) => {
   return data
 }
 
-export default function Converter() {
+export const Converter = () => {
   const { data, error } = useSWR<ConversionData>(CONVERT_API_URL, fetcher)
 
   const [inputValue, setInputValue] = useState<string>('1')
