@@ -1,6 +1,6 @@
 ## How to run app in dev: 
 
-1. git clone https://github.com/AngelikaPrik/streaming.git
+1. git clone https://github.com/AngelikaPrik/cryptorank_spa.git
 
 2. Install dependencies:
    ```bash
