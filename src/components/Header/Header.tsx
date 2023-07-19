@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Box, HeaderBox } from './style'
 
-export default function Header() {
+export const Header = () => {
   const pathname = usePathname()
 
   const activePath = (path = '/') => {

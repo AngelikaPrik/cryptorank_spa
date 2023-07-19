@@ -14,7 +14,7 @@ import {
   Select,
   ConvertBtn,
 } from './style'
-import Loader from '../Loader/Loader'
+import { Loader } from '../Loader'
 
 const fetcher: Fetcher<ConversionData, string> = async (url: string) => {
   const { data } = await axios.get(url)

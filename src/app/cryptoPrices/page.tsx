@@ -5,7 +5,7 @@ import { styled } from 'styled-components'
 import { formatNumber } from '@/utils'
 import { CurrencyListData } from '@/types'
 import { COINDATA_API_URL } from '@/constants'
-import Loader from '@/components/Loader/Loader'
+import { Loader } from '@/components/Loader'
 
 const Container = styled.div`
   max-width: 80%;

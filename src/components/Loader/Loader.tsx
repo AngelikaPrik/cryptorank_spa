@@ -1,6 +1,6 @@
 import { DualRingLoader, Ring } from './style'
 
-export default function Loader() {
+export const Loader = () => {
   return (
     <DualRingLoader>
       <Ring />
