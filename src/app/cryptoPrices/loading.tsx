@@ -1,5 +1,6 @@
 'use client'
 
+import Loader from '@/components/Loader/Loader'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -7,8 +8,10 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-const Loading = () => {
-  return <Container>Loading...</Container>
+export default function Loading() {
+  return (
+    <Container>
+      <Loader />
+    </Container>
+  )
 }
-
-export default Loading
