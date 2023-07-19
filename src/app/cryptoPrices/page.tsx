@@ -5,6 +5,7 @@ import { styled } from 'styled-components'
 import { formatNumber } from '@/utils'
 import { CurrencyListData } from '@/types'
 import { COINDATA_API_URL } from '@/constants'
+import Loader from '@/components/Loader/Loader'
 
 const Container = styled.div`
   max-width: 80%;
@@ -45,8 +46,13 @@ export default function CryptoPrices() {
   const { data, error } = useSWR<CurrencyListData>(COINDATA_API_URL, fetcher)
 
   if (error) return <Container>Error loading data</Container>
-  if (!data) return <Container>Loading...</Container>
-  
+  if (!data)
+    return (
+      <Container>
+        <Loader />
+      </Container>
+    )
+
   return (
     <Container>
       <Table>
