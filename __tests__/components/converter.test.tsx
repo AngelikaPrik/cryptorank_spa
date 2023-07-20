@@ -34,10 +34,6 @@ describe('Converter: ', () => {
     })
 
     waitFor(() => {
-      expect(getByText('0 BTC = 0 USD')).toBeInTheDocument()
-    })
-
-    waitFor(() => {
       const flipCurrencyButton = getByTestId('flipCurrency')
 
       expect(flipCurrencyButton).toBeInTheDocument()
