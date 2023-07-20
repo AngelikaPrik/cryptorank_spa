@@ -20,8 +20,6 @@ This is a web application that allows users to convert between different cryptoc
 	npm run dev
 
 ## How to run app in build
-	  ```bash
+```bash
 	  npm run dev
-
-   ```bash
 	  npm start
