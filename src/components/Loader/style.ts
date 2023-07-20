@@ -27,8 +27,8 @@ export const Ring = styled.div`
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 6px solid #000;
-    border-color: #000 transparent #000 transparent;
+    border: 6px solid #66c2ff;
+    border-color: #66c2ff transparent #66c2ff transparent;
     animation: ${spinAnimation} 1.2s linear infinite;
   }
 `
