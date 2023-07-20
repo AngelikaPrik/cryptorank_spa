@@ -2,7 +2,7 @@ import { DualRingLoader, Ring } from './style'
 
 export const Loader = () => {
   return (
-    <DualRingLoader>
+    <DualRingLoader data-testid="loader">
       <Ring />
     </DualRingLoader>
   )
