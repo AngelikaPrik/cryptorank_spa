@@ -13,7 +13,7 @@ import {
   Select,
   ConvertBtn,
 } from './style'
-import { Loader } from '../Loader'
+import { Loader } from '../ui/Loader'
 import { fetcher } from '@/api/fetcher'
 
 export const Converter = () => {
