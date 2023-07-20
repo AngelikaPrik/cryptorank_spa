@@ -1,8 +1,6 @@
 'use client'
 import { getConverting, validate } from '@/utils'
 import { ChangeEvent, useState } from 'react'
-import { ConversionData } from '@/types'
-import { CONVERT_API_URL } from '@/constants'
 import {
   AmountBox,
   Container,
@@ -13,10 +11,10 @@ import {
   ConvertBtn,
 } from './style'
 import { Loader } from '../ui/Loader'
-import { UseFetching } from '@/hooks/useFetching'
+import { useGetConversionData } from '@/hooks'
 
 export const Converter = () => {
-  const { data, error, isLoading } = UseFetching<ConversionData>(CONVERT_API_URL)
+  const { data, error, isLoading } = useGetConversionData()
 
   const [inputValue, setInputValue] = useState<string>('1')
   const [from, setFrom] = useState<string>('BTC')

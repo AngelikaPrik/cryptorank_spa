@@ -1,10 +1,8 @@
-'use client'
+'use client';
 import { styled } from 'styled-components'
-import { CurrencyListData } from '@/types'
-import { COINDATA_API_URL } from '@/constants'
 import { Loader } from '@/components/ui/Loader'
 import { CurrencyTable } from '@/components/CurrencyTable'
-import { UseFetching } from '@/hooks/useFetching'
+import { useGetCurrencyListData } from '@/hooks';
 
 const Container = styled.div`
   max-width: 80%;
@@ -15,8 +13,7 @@ const Container = styled.div`
 `
 
 export default function CryptoPrices() {
-  const { data, error, isLoading } =
-    UseFetching<CurrencyListData>(COINDATA_API_URL)
+  const { data, error, isLoading } = useGetCurrencyListData()
 
   if (error) return <Container>Error loading data</Container>
   if (isLoading || !data) {
