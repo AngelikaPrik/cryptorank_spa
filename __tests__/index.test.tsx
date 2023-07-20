@@ -4,7 +4,8 @@ import '@testing-library/jest-dom'
 
 describe('Home', () => {
   test('render homepage', () => {
-    const { container } = render(<Home />)
-    expect(container).toBeInTheDocument()
+    const { getByRole } = render(<Home />)
+    const main = getByRole('main')
+    expect(main).toBeInTheDocument()
   })
 })
