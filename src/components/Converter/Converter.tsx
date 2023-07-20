@@ -1,6 +1,5 @@
 'use client'
-import axios from 'axios'
-import useSWR, { Fetcher } from 'swr'
+import useSWR from 'swr'
 import { getConverting, validate } from '@/utils'
 import { ChangeEvent, useState } from 'react'
 import { ConversionData } from '@/types'
@@ -15,26 +14,26 @@ import {
   ConvertBtn,
 } from './style'
 import { Loader } from '../Loader'
-
-const fetcher: Fetcher<ConversionData, string> = async (url: string) => {
-  const { data } = await axios.get(url)
-  return data
-}
+import { fetcher } from '@/api/fetcher'
 
 export const Converter = () => {
-  const { data, error } = useSWR<ConversionData>(CONVERT_API_URL, fetcher)
+  const { data, error, isLoading } = useSWR<ConversionData, Error>(
+    CONVERT_API_URL,
+    fetcher
+  )
 
   const [inputValue, setInputValue] = useState<string>('1')
   const [from, setFrom] = useState<string>('BTC')
   const [to, setTo] = useState<string>('USD')
 
   if (error) return <Container>Error loading data</Container>
-  if (!data)
+  if (isLoading || !data) {
     return (
       <Container>
         <Loader />
       </Container>
     )
+  }
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(validate(e.target.value))
