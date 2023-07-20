@@ -5,6 +5,16 @@ export const roundValue = (value: number): string => {
   return roundedValue.toString()
 }
 
+export const separateNumberWithComma = (value: number): string => {
+  if (value >= 1e3) {
+    const rounded = Math.round(value)
+    const formattedValue = new Intl.NumberFormat('en-US').format(rounded)
+    return formattedValue
+  } else {
+    return roundValue(value)
+  }
+}
+
 export const formatNumber = (value: number): string => {
   if (value >= 1e12) {
     const formattedValue = (value / 1e12).toFixed(2)
@@ -19,9 +29,7 @@ export const formatNumber = (value: number): string => {
     return `${parseFloat(formattedValue).toFixed(2)}M`
   }
   if (value >= 1e3) {
-    const rounded = Math.round(value)
-    const formattedValue = new Intl.NumberFormat('en-US').format(rounded)
-    return formattedValue
+    return separateNumberWithComma(value)
   }
   if (value <= 1e3) {
     return roundValue(value)
@@ -47,8 +55,5 @@ export const getConverting = (
   amount: string
 ): string => {
   const convertedAmount = (+amount / from) * to
-  if (convertedAmount < 1e3) return roundValue(convertedAmount)
-  const rounded = Math.round(convertedAmount)
-  const formattedValue = new Intl.NumberFormat('en-US').format(rounded)
-  return formattedValue
+  return separateNumberWithComma(convertedAmount)
 }
