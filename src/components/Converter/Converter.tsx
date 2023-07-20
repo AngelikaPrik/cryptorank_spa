@@ -1,5 +1,5 @@
 'use client'
-import { getConverting, validate } from '@/utils'
+import { getConverting, separateNumberWithComma, validate } from '@/utils'
 import { ChangeEvent, useState } from 'react'
 import {
   AmountBox,
@@ -90,7 +90,7 @@ export const Converter = () => {
       </Box>
       {data && (
         <h3 data-testid="result">
-          {inputValue} {from} = {convert} {to}
+          {separateNumberWithComma(+inputValue)} {from} = {convert} {to}
         </h3>
       )}
     </Container>
