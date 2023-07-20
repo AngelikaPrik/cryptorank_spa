@@ -5,7 +5,8 @@ This is a web application that allows users to convert between different cryptoc
 
 2. Cryptocurrency Prices: This page displays a table with columns such as Name, Price USD, Circulating Supply, Market Cap, Category for various cryptocurrencies. The data is fetched from an API that provides the latest information about cryptocurrency prices.
 
-   
+## Deploy version:
+
 ## How to run app in dev: 
 
 1. git clone https://github.com/AngelikaPrik/cryptorank_spa.git
