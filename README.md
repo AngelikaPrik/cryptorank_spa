@@ -17,8 +17,10 @@ This is a web application that allows users to convert between different cryptoc
 
 3. Start the development server:
    ```bash
-	npm run dev
+   npm run dev
 
 ## How to run app in build
-	```bash
-	  npm run build
+   ```bash
+   npm run build
+   npm run start
+
