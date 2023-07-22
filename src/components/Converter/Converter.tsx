@@ -1,6 +1,6 @@
 'use client'
 import { getConverting, separateNumberWithComma, validate } from '@/utils'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useMemo, useState } from 'react'
 import {
   AmountBox,
   Container,
@@ -12,13 +12,29 @@ import {
 } from './style'
 import { Loader } from '../ui/Loader'
 import { useGetConversionData } from '@/hooks'
+import { ConversionData } from '@/types'
+
+const ResultMemoized = ({ amount, from, to, values }: PropsType) => {
+  const convert = useMemo(
+    () => getConverting(values[from].price, values[to].price, amount),
+    [amount, from, to, values]
+  )
+
+  const separated = useMemo(() => separateNumberWithComma(+amount), [amount])
+
+  return (
+    <h3 data-testid="result">
+      {separated} {from} = {convert} {to}
+    </h3>
+  )
+}
 
 export const Converter = () => {
   const { data, error, isLoading } = useGetConversionData()
 
-  const [inputValue, setInputValue] = useState<string>('1')
-  const [from, setFrom] = useState<string>('BTC')
-  const [to, setTo] = useState<string>('USD')
+  const [inputValue, setInputValue] = useState('1')
+  const [from, setFrom] = useState('BTC')
+  const [to, setTo] = useState('USD')
 
   if (error) return <Container>Error loading data</Container>
   if (isLoading || !data) {
@@ -37,12 +53,6 @@ export const Converter = () => {
     setFrom(to)
     setTo(from)
   }
-
-  const convert = getConverting(
-    data.data.values[from].price,
-    data.data.values[to].price,
-    inputValue
-  )
 
   const keyValues = Object.keys(data.data.values)
 
@@ -89,10 +99,20 @@ export const Converter = () => {
         </Select>
       </Box>
       {data && (
-        <h3 data-testid="result">
-          {separateNumberWithComma(+inputValue)} {from} = {convert} {to}
-        </h3>
+        <ResultMemoized
+          amount={inputValue}
+          from={from}
+          to={to}
+          values={data.data.values}
+        />
       )}
     </Container>
   )
+}
+
+interface PropsType {
+  amount: string
+  from: string
+  to: string
+  values: ConversionData['data']['values']
 }
