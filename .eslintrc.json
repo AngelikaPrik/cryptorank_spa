@@ -11,6 +11,7 @@
     "quotes": ["error", "single"],
     "no-console": "error",
     "no-debugger": "error",
-    "arrow-spacing": "error"
+    "arrow-spacing": "error",
+    "react/display-name": "off"
   }
 }
