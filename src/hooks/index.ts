@@ -1,7 +1,7 @@
-import { ConversionData, CurrencyListData } from '../types/index'
+import useSWR from 'swr'
 import { fetcher } from '@/api/fetcher'
 import { BASE_URL } from '@/constants'
-import useSWR from 'swr'
+import { ConversionData, CurrencyListData } from '../types/index'
 
 const CONVERT_API_URL = `${BASE_URL}v1/currencies/1?api_key=${process.env.customKey}`
 const COINDATA_API_URL = `${BASE_URL}v1/currencies?api_key=${process.env.customKey}`

@@ -1,7 +1,7 @@
 'use client';
 import { styled } from 'styled-components'
-import { Loader } from '@/components/ui/Loader'
 import { CurrencyTable } from '@/components/CurrencyTable'
+import { Loader } from '@/components/ui/Loader'
 import { useGetCurrencyListData } from '@/hooks';
 
 const Container = styled.div`

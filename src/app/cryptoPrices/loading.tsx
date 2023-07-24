@@ -1,7 +1,7 @@
 'use client'
 
-import { Loader } from '@/components/ui/Loader'
 import { styled } from 'styled-components'
+import { Loader } from '@/components/ui/Loader'
 
 const Container = styled.div`
   max-width: 80%;

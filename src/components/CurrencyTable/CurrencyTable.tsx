@@ -1,7 +1,7 @@
-import { formatNumber } from '@/utils'
-import { CurrencyListData } from '@/types'
-import { Table } from '../ui/Table'
 import { memo } from 'react'
+import { CurrencyListData } from '@/types'
+import { formatNumber } from '@/utils'
+import { Table } from '../ui/Table'
 
 export const CurrencyTable = memo(({ data }: PropsType) => {
   const theads = [

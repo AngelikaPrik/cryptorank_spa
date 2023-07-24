@@ -1,6 +1,9 @@
 'use client'
-import { getConverting, separateNumberWithComma, validate } from '@/utils'
 import { ChangeEvent, useMemo, useState } from 'react'
+import { useGetConversionData } from '@/hooks'
+import { ConversionData } from '@/types'
+import { getConverting, separateNumberWithComma, validate } from '@/utils'
+import { Loader } from '../ui/Loader'
 import {
   AmountBox,
   Container,
@@ -10,9 +13,6 @@ import {
   Select,
   ConvertBtn,
 } from './style'
-import { Loader } from '../ui/Loader'
-import { useGetConversionData } from '@/hooks'
-import { ConversionData } from '@/types'
 
 const ResultMemoized = ({ amount, from, to, values }: PropsType) => {
   const convert = useMemo(
